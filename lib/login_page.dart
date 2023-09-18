@@ -5,10 +5,13 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Material(
+    return  const Material(
       child: Column(
         children: [
-          Image.asset("assets/images/logon_image.png"),
+          Image(
+         image:  AssetImage("assets/images/logon_image.jpg"),
+         fit: BoxFit.fitHeight,
+          ),
         ],
       )
     );
