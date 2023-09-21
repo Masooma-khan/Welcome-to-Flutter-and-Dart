@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  String name = "";
 
   @override
   Widget build(BuildContext context) {
@@ -12,9 +19,9 @@ class LoginPage extends StatelessWidget {
             "assets/images/logon_image.png",
             fit: BoxFit.cover,
           ),
-          const Text(
-            "Welcome",
-            style: TextStyle(
+          Text(
+            "Welcome $name",
+            style: const TextStyle(
               fontSize: 25,
               fontWeight: FontWeight.bold,
             ),
@@ -29,6 +36,12 @@ class LoginPage extends StatelessWidget {
                 TextFormField(
                   decoration: const InputDecoration(
                       hintText: "Enter userName", labelText: "Enter username"),
+                      onChanged:(value) {
+                        name=value;
+                        setState(() {
+                          
+                        });
+                      },
                 ),
                 TextFormField(
                   obscureText: true,
@@ -38,13 +51,22 @@ class LoginPage extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                ElevatedButton(
-                  style: TextButton.styleFrom(),
-                  onPressed: () {
-                    print("Hi Masooma");
-                  },
+                Container(
+                  width: 150,
+                  height: 50,
+                  color: Colors.amberAccent,
+                   alignment: Alignment.center,
                   child: const Text("login"),
-                )
+                ),
+                /*ElevatedButton(
+                  child:  Text("login"),
+                  style: TextButton.styleFrom(
+                    minimumSize: const Size(150, 40),
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, MyRoutes.homeRoute);
+                  },
+                )*/
               ],
             ),
           ),
